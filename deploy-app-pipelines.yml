@@ -25,6 +25,14 @@ steps:
     packageType: 'sdk'
     useGlobalJson: true
     workingDirectory: 'code'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'code.csproj'
+    feedsToUse: 'select'
+    includeNuGetOrg: true
+    
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
