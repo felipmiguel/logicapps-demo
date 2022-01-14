@@ -5,11 +5,11 @@
 
 trigger:
   branches:
-    - master
+    include:
+      - master
   paths:
     include:
       - infra
-
 
 pool:
   vmImage: ubuntu-latest
