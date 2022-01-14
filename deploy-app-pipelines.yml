@@ -29,15 +29,14 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: 'code.csproj'
+    projects: '*/**/code.csproj'
     feedsToUse: 'select'
-    includeNuGetOrg: true
-    workingDirectory: 'code'
     
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     publishWebProjects: false
+    projects: '*/**/code.csproj'
     workingDirectory: 'code'
 
 - task: AzureFunctionApp@1
