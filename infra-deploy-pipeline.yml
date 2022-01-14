@@ -4,16 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    - master
+  paths:
+    include:
+      - infra
+
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'FTA fmiguel - Azure CXP Internal(98bc5d13-2aa1-45cb-bf49-45aa47e220bf)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az deployment sub create --name ''logicapps-demo'' --location northeurope --template-file main.bicep'
+    workingDirectory: 'infra/bicep'
