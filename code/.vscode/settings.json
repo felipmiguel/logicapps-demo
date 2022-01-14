@@ -2,5 +2,9 @@
     "azureFunctions.deploySubpath": ".",
     "azureFunctions.projectLanguage": "JavaScript",
     "azureFunctions.projectRuntime": "~3",
-    "debug.internalConsoleOptions": "neverOpen"
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureLogicAppsStandard.deploySubpath": "bin/Release/netcoreapp3.1/publish",
+    "azureLogicAppsStandard.projectLanguage": "C#",
+    "azureLogicAppsStandard.projectRuntime": "~3",
+    "azureLogicAppsStandard.preDeployTask": "publish"
 }
