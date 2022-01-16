@@ -24,7 +24,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'zip -r deploy.zip Stateless1/  host.json'
-    workingDirectory: 'code/bundle'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/code/bundle'
     
 - task: AzureFunctionApp@1
   inputs:
