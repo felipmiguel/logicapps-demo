@@ -23,7 +23,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'zip -r deploy.zip EchoStateless/ EchoStatefull/ host.json'
+    script: 'zip -r deploy.zip Stateless1/  host.json'
     workingDirectory: 'code/bundle'
     
 - task: AzureFunctionApp@1
