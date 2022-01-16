@@ -3,17 +3,32 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
-- master
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - code
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: CmdLine@2
+  inputs:
+    script: 'zip -r deploy.zip EchoStateless/ EchoStatefull/ host.json'
+    workingDirectory: 'code'
+    
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'FTA fmiguel - Azure CXP Internal(98bc5d13-2aa1-45cb-bf49-45aa47e220bf)'
+    appType: 'workflowapp'
+    appName: 'app-demo-logicapp-0127-dev-001'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
