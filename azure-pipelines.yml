@@ -14,7 +14,7 @@ trigger:
       - master
   paths:
     include:
-      - code
+      - code/bundle
 
 pool:
   vmImage: ubuntu-latest
@@ -24,7 +24,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'zip -r deploy.zip EchoStateless/ EchoStatefull/ host.json'
-    workingDirectory: 'code'
+    workingDirectory: 'code/bundle'
     
 - task: AzureFunctionApp@1
   inputs:
