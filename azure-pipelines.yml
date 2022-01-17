@@ -25,6 +25,7 @@ steps:
   inputs:
     script: |
       sudo apt install zip
+      rm deploy.zip
       zip -r deploy.zip . -i SampleFunctionsBundleStateless/ host.json
     workingDirectory: '$(System.DefaultWorkingDirectory)/code/funcsrt'
     
@@ -33,4 +34,5 @@ steps:
     azureSubscription: 'FTA fmiguel - Azure CXP Internal(98bc5d13-2aa1-45cb-bf49-45aa47e220bf)'
     appType: 'workflowapp'
     appName: 'app-demo-logicapp-0127-dev-001'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/code/funcsrt/deploy.zip'
+    deploymentMethod: 'zipDeploy'
