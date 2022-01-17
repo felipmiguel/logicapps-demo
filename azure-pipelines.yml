@@ -26,7 +26,7 @@ steps:
     script: |
       sudo apt install zip
       rm deploy.zip
-      zip -r deploy.zip . -i SampleFunctionsBundleStateless/ host.json
+      zip -r deploy.zip SampleFunctionsBundleStateless/ host.json
     workingDirectory: '$(System.DefaultWorkingDirectory)/code/funcsrt'
     
 - task: AzureFunctionApp@1
