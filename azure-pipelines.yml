@@ -25,7 +25,7 @@ steps:
   inputs:
     script: |
       sudo apt install zip
-      zip -r deploy.zip . -i Stateless1/ host.json
+      zip -r deploy.zip . -i SampleFunctionsBundleStateless/ host.json
     workingDirectory: '$(System.DefaultWorkingDirectory)/code/bundle'
     
 - task: AzureFunctionApp@1
