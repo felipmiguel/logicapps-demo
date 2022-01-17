@@ -14,7 +14,7 @@ trigger:
       - master
   paths:
     include:
-      - code/bundle
+      - code/funcsrt
 
 pool:
   vmImage: ubuntu-latest
@@ -26,7 +26,7 @@ steps:
     script: |
       sudo apt install zip
       zip -r deploy.zip . -i SampleFunctionsBundleStateless/ host.json
-    workingDirectory: '$(System.DefaultWorkingDirectory)/code/bundle'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/code/funcsrt'
     
 - task: AzureFunctionApp@1
   inputs:
