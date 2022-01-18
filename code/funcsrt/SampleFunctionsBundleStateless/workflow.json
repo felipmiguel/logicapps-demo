@@ -7,7 +7,7 @@
                 "kind": "http",
                 "inputs": {
                     "statusCode": 200,
-                    "body": "@concat(triggerBody(), utcNow())"
+                    "body": "@triggerBody()"
                 },
                 "runAfter": {}
             }
